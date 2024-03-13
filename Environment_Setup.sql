@@ -7,13 +7,13 @@ Bringing data from an Excel files into SQL Server Management Studio and setting 
 
 USE [master]
 GO
-CREATE DATABASE [Red30Tech]
+CREATE DATABASE [Red30Tech2]
 
 -- Step 2: Switch to using the new database you just created
-USE [Red30Tech] 
+USE [Red30Tech2] 
 
 -- Step 3: Upload the datasets as tables into SSMS
--- Follow along with demo in video. Ensure you close out and reopen SSMS when completed. Make sure that you run USE [Red30Tech] again if you exit and re-enter SSMS!
+-- Follow along with demo in video. Ensure you close out and reopen SSMS when completed. Make sure that you run USE [Red30Tech2] again if you exit and re-enter SSMS!
 
 -- Step 4:  Add Primary Key Constraints
 
@@ -30,19 +30,19 @@ USE [Red30Tech]
   --- SET PK FOR SESSION INFO 
   -- First, Make cols Non-Nullable
   ALTER TABLE dbo.SessionInfo$
-  ALTER COLUMN [Start Date] datetime NOT NULL
+  ALTER COLUMN [Start_Date] datetime NOT NULL
   GO 
 
   ALTER TABLE dbo.SessionInfo$
-  ALTER COLUMN [End Date] datetime NOT NULL
+  ALTER COLUMN [End_Date] datetime NOT NULL
   GO
 
   ALTER TABLE dbo.SessionInfo$
-  ALTER COLUMN [Session Name] nvarchar(255) NOT NULL
+  ALTER COLUMN [Session_Name] nvarchar(255) NOT NULL
   GO 
   
-  -- Identify Start Date, End Date, and Session name as the Primary Key of this table
-  ALTER TABLE dbo.SessionInfo$ add primary key ([Start Date],[End Date],[Session Name]) 
+  -- Identify Start_Date, End_Date, and Session_Name as the Primary Key of this table
+  ALTER TABLE dbo.SessionInfo$ add primary key ([Start_Date],[End_Date],[Session_Name]) 
   GO
 
   --- SET PK FOR SPEAKER INFO
@@ -52,12 +52,12 @@ USE [Red30Tech]
   GO 
 
   ALTER TABLE dbo.SpeakerInfo$
-  ALTER COLUMN [Session Name] nvarchar(255) NOT NULL
+  ALTER COLUMN [Session_Name] nvarchar(255) NOT NULL
   GO
 
-  -- Identify Name and Session Name as the Primary Key of this table
+  -- Identify Name and Session_Name as the Primary Key of this table
   -- Some session topics are duplicates of each other but they are delivered by different speakers
-  ALTER TABLE dbo.SpeakerInfo$ add primary key ([Name],[Session Name]) 
+  ALTER TABLE dbo.SpeakerInfo$ add primary key ([Name],[Session_Name]) 
   GO
   
   --- SET PK FOR CONFERENCE ATTENDEES
@@ -95,7 +95,7 @@ USE [Red30Tech]
   GO
   
   -- NOTE: You may need to refresh your connection to see this change under the Keys section. If that does not work, you may need to exit out of SSMS and re-enter. 
-  -- Make sure that you run USE [Red30Tech] again if you exit and re-enter SSMS!
+  -- Make sure that you run USE [Red30Tech2] again if you exit and re-enter SSMS!
 
 -- You're ready to start querying!
 
